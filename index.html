@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/b985040adf.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=STIX+Two+Math&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <title>Liantus Weather</title>
+  </head>
+  <body>
+    <div>
+      <div class="card col-12 main-card shadow">
+        <div class="card-body">
+          <form class="search-form" id="city-search">
+            <div class="row">
+              <div class="col-8">
+                <input
+                  type="search"
+                  placeholder="Type a city.."
+                  autofocus="on"
+                  autocomplete="off"
+                  id="enter-city"
+                  class="form-control"
+                />
+              </div>
+
+              <input
+                type="submit"
+                value="Search"
+                class="btn btn-outline-dark col-2"
+              />
+              <button
+                type="button"
+                class="btn btn-outline-dark col-2"
+                id="current-position"
+              >
+                Current
+              </button>
+            </div>
+          </form>
+
+          <div class="row">
+            <div class="col-sm-6"><h1>Kazan</h1></div>
+            <div class="col-sm-6">
+              <ul class="current-data">
+                <li class="date" id="today-date">july 25 2021</li>
+                <li class="week-day" id="week-day">Sunday</li>
+                <li class="time" id="time">11:11 am</li>
+              </ul>
+            </div>
+          </div>
+
+          <ul class="today">
+            <li class="today-temp">
+              <i class="fas fa-cloud-sun"></i>
+              <span id="big-weather-display"> </span>
+              <div class="btn-group">
+                <button
+                  type="button"
+                  class="btn btn-secondary celsius"
+                  id="celsius-button"
+                  autofocus
+                >
+                  ℃
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-secondary farenheit"
+                  id="farenheit-button"
+                >
+                  ℉
+                </button>
+              </div>
+            </li>
+            <li>feels like: <span id="feels-like"></span>°C</li>
+            <li>humidity: <span id="humidity"></span>%</li>
+            <li>wind speed: <span id="wind-speed"></span> km/h</li>
+          </ul>
+        </div>
+        <div class="row week-weather shadow">
+          <div class="card upcoming-weather">
+            <div class="upcoming-date">july 27</div>
+            <div class="upcoming-weekday">Mon</div>
+            <i class="fas fa-cloud-sun small-icon"></i>
+            <div class="upcoming-temperature">27℃</div>
+          </div>
+          <div class="card upcoming-weather">
+            <div class="upcoming-date">july 28</div>
+            <div class="upcoming-weekday">Tue</div>
+            <i class="fas fa-cloud-rain small-icon"></i>
+            <div class="upcoming-temperature">24℃</div>
+          </div>
+          <div class="card upcoming-weather">
+            <div class="upcoming-date">july 29</div>
+            <div class="upcoming-weekday">Wed</div>
+            <i class="fas fa-sun small-icon"></i>
+            <div class="upcoming-temperature">20℃</div>
+          </div>
+          <div class="card upcoming-weather">
+            <div class="upcoming-date">july 30</div>
+            <div class="upcoming-weekday">Thur</div>
+            <i class="fas fa-cloud-sun small-icon"></i>
+            <div class="upcoming-temperature">28℃</div>
+          </div>
+          <div class="card upcoming-weather">
+            <div class="upcoming-date">july 31</div>
+            <div class="upcoming-weekday">Fri</div>
+            <i class="fas fa-cloud-sun small-icon"></i>
+            <div class="upcoming-temperature">23℃</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

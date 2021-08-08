@@ -1,0 +1,88 @@
+body {
+  background-image: url("images/marble.jpg");
+  background-size: 100%;
+  font-family: "IBM Plex Serif", serif;
+  padding: 50px;
+}
+
+.main-card {
+  background-color: rgba(251, 251, 251, 0.7);
+  display: block;
+  margin: 0 auto;
+  color: #575657;
+  border: 1px solid #d6d6d6;
+  border-radius: 0;
+  white-space: nowrap;
+  max-width: 800px;
+  min-width: 300px;
+  padding: 30px;
+}
+
+h1 {
+  text-align: left;
+  font-size: 50px;
+  margin-top: 20px;
+}
+
+ul.current-data {
+  list-style: none;
+  text-align: right;
+  margin-top: 10px;
+  top: 0px;
+  right: 0;
+}
+ul.today {
+  list-style: none;
+  text-align: center;
+  padding: 0 0 40px;
+  font-size: small;
+}
+
+.today-temp {
+  text-align: center;
+  font-size: 60px;
+  padding: 60px 0 0;
+}
+.btn-secondary {
+  background: none;
+  border: none;
+  color: #575657;
+  padding: 0 3px;
+  transition: all 200ms ease-in;
+  margin: 0 0 60px;
+}
+.btn-secondary:hover {
+  background: none;
+  border: none;
+  color: #575657;
+  padding: 0;
+  font-weight: bold;
+  font-size: 20px;
+}
+.btn-secondary:focus {
+  background: none;
+  border: none;
+  color: #575657;
+  padding: 0;
+  font-weight: bold;
+  box-shadow: none;
+  font-size: 20px;
+}
+.upcoming-weather {
+  background-color: rgba(255, 255, 255, 0%);
+  border: none;
+  text-align: center;
+  width: 20%;
+}
+.upcoming-date {
+  font-style: italic;
+}
+.upcoming-weekday {
+  font-weight: bold;
+}
+.small-icon {
+  font-size: 30px;
+}
+.upcoming-temperature {
+  font-size: 20px;
+}
