@@ -86,3 +86,10 @@ ul.today {
 .upcoming-temperature {
   font-size: 20px;
 }
+
+.references {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 12px;
+}
