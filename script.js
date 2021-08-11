@@ -41,9 +41,9 @@ function showTime(currentTime) {
   }
   let minutes = currentTime.getMinutes();
   if (minutes < 10) {
-    minutes = `0${minutes}`;}
-    return `${hour}:${minutes}`;
-  
+    minutes = `0${minutes}`;
+  }
+  return `${hour}:${minutes}`;
 }
 
 let todayDate = document.querySelector("#today-date");
@@ -65,7 +65,7 @@ function showCity(event) {
   let cityInput = document.querySelector("#enter-city");
   cityInput.value = cityInput.value.trim();
   let apiKey = "e443ae2d9c3fd770036c3beff05b41cf";
-  let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput.value}&appid=${apiKey}&units=metric`;
   axios.get(url).then(showWeather);
 }
 
