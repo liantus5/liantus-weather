@@ -84,6 +84,12 @@ function showWeather(response) {
   let h1 = document.querySelector("h1");
   h1.innerHTML = response.data.name;
   console.log(response);
+  let mainIcon = document.querySelector("#main-icon");
+  mainIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  mainIcon.setAttribute("alt", response.data.weather[0].description);
 }
 
 function handlePosition(position) {
