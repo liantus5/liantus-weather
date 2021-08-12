@@ -83,7 +83,7 @@ function showWeather(response) {
   windSpeed.innerHTML = `${Math.round(response.data.wind.speed)}`;
   let h1 = document.querySelector("h1");
   h1.innerHTML = response.data.name;
-  console.log(response);
+
   let mainIcon = document.querySelector("#main-icon");
   mainIcon.setAttribute(
     "src",
@@ -93,13 +93,8 @@ function showWeather(response) {
 }
 
 function handlePosition(position) {
-  console.log(position);
-  console.log(position.coords.latitude);
-  console.log(position.coords.longitude);
-
   let apiKey = "e443ae2d9c3fd770036c3beff05b41cf";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
-  console.log(apiUrl);
   axios.get(apiUrl).then(showWeather);
 }
 
