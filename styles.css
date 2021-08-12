@@ -40,7 +40,7 @@ ul.today {
 
 .today-temp {
   text-align: center;
-  font-size: 60px;
+  font-size: 75px;
   padding: 60px 0 0;
 }
 .btn-secondary {
@@ -92,4 +92,9 @@ ul.today {
   margin: 0 auto;
   text-align: center;
   font-size: 12px;
+}
+
+#main-icon {
+  height: 75px;
+  width: 75px;
 }
