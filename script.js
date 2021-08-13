@@ -55,10 +55,11 @@ weekDay.innerHTML = getWeekDay(now);
 let currentTime = document.querySelector("#time");
 currentTime.innerHTML = showTime(now);
 
-let apiKey = "e443ae2d9c3fd770036c3beff05b41cf";
-let city = `KAZAN`;
-let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-axios.get(url).then(showWeather);
+function search(city) {
+  let apiKey = "e443ae2d9c3fd770036c3beff05b41cf";
+  let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(url).then(showWeather);
+}
 
 function showCity(event) {
   event.preventDefault();
@@ -104,3 +105,14 @@ function showCurrent(event) {
 
 let currentButton = document.querySelector("#current-position");
 currentButton.addEventListener("click", showCurrent);
+
+function convertToFahrenheit(event) {
+  let celsiusTemp = document.querySelector("#big-weather-display");
+  let fahrenheitTemp = `${(celsiusTemp.innerHTML * 9) / 5 + 32}`;
+  celsiusTemp.innerHTML = Math.round(fahrenheitTemp);
+}
+
+let fahrenheitButton = document.querySelector("#farenheit-button");
+fahrenheitButton.addEventListener("click", convertToFahrenheit);
+
+search("Kazan");
