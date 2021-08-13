@@ -85,7 +85,8 @@ function showWeather(response) {
   windSpeed.innerHTML = `${Math.round(response.data.wind.speed)}`;
   let h1 = document.querySelector("h1");
   h1.innerHTML = response.data.name;
-
+  let description = document.querySelector("#description");
+  description.innerHTML = response.data.weather[0].description;
   let mainIcon = document.querySelector("#main-icon");
   mainIcon.setAttribute(
     "src",
