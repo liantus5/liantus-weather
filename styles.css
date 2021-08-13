@@ -59,7 +59,7 @@ ul.today {
   font-weight: bold;
   font-size: 20px;
 }
-.btn-secondary:focus {
+.clicked {
   background: none;
   border: none;
   color: #575657;
@@ -68,6 +68,16 @@ ul.today {
   box-shadow: none;
   font-size: 20px;
 }
+.clicked:focus {
+  background: none;
+  border: none;
+  color: #575657;
+  padding: 0;
+  font-weight: bold;
+  box-shadow: none;
+  font-size: 20px;
+}
+
 .upcoming-weather {
   background-color: rgba(255, 255, 255, 0%);
   border: none;

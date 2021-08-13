@@ -74,8 +74,9 @@ let searchForm = document.querySelector("#city-search");
 searchForm.addEventListener("submit", showCity);
 
 function showWeather(response) {
+  celsiusTemp = response.data.main.temp;
   let mainTemp = document.querySelector("#big-weather-display");
-  mainTemp.innerHTML = `${Math.round(response.data.main.temp)}`;
+  mainTemp.innerHTML = `${Math.round(celsiusTemp)}`;
   let feelsLike = document.querySelector("#feels-like");
   feelsLike.innerHTML = `${Math.round(response.data.main.feels_like)}`;
   let humidity = document.querySelector("#humidity");
@@ -97,6 +98,7 @@ function handlePosition(position) {
   let apiKey = "e443ae2d9c3fd770036c3beff05b41cf";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showWeather);
+  convertToCelsius();
 }
 
 function showCurrent(event) {
@@ -107,12 +109,26 @@ let currentButton = document.querySelector("#current-position");
 currentButton.addEventListener("click", showCurrent);
 
 function convertToFahrenheit(event) {
-  let celsiusTemp = document.querySelector("#big-weather-display");
-  let fahrenheitTemp = `${(celsiusTemp.innerHTML * 9) / 5 + 32}`;
-  celsiusTemp.innerHTML = Math.round(fahrenheitTemp);
+  let tempElement = document.querySelector("#big-weather-display");
+  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
+  tempElement.innerHTML = Math.round(fahrenheitTemp);
+  fahrenheitButton.classList.add("clicked");
+  celsiusButton.classList.remove("clicked");
+}
+
+function convertToCelsius(event) {
+  let tempElement = document.querySelector("#big-weather-display");
+  tempElement.innerHTML = Math.round(celsiusTemp);
+  fahrenheitButton.classList.remove("clicked");
+  celsiusButton.classList.add("clicked");
 }
 
 let fahrenheitButton = document.querySelector("#farenheit-button");
 fahrenheitButton.addEventListener("click", convertToFahrenheit);
+
+let celsiusButton = document.querySelector("#celsius-button");
+celsiusButton.addEventListener("click", convertToCelsius);
+
+let celsiusTemp = null;
 
 search("Kazan");
