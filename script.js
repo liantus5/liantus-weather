@@ -73,6 +73,10 @@ function showCity(event) {
 let searchForm = document.querySelector("#city-search");
 searchForm.addEventListener("submit", showCity);
 
+function getForecast(coordinates) {
+  console.log(coordinates);
+}
+
 function showWeather(response) {
   celsiusTemp = response.data.main.temp;
   let mainTemp = document.querySelector("#big-weather-display");
@@ -93,6 +97,9 @@ function showWeather(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   mainIcon.setAttribute("alt", response.data.weather[0].description);
+  displayForecast();
+
+  getForecast(response.data.coord);
 }
 
 function handlePosition(position) {
@@ -122,6 +129,29 @@ function convertToCelsius(event) {
   tempElement.innerHTML = Math.round(celsiusTemp);
   fahrenheitButton.classList.remove("clicked");
   celsiusButton.classList.add("clicked");
+}
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let days = ["Mon", "Tue", "Wed", "Thur", "Fri"];
+  let forecastHTML = ``;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="card forecast one-day"><div class="upcoming-weekday">${day}</div>
+          <img
+            src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
+            alt=""
+            class="forecast-icon"
+          />
+          <div class="upcoming-temperature">
+            <span class="temp-max">27°</span> <span class="temp-min">18°</span>
+          </div>
+        </div>
+        </div>`;
+  });
+
+  forecastElement.innerHTML = forecastHTML;
 }
 
 let fahrenheitButton = document.querySelector("#farenheit-button");
