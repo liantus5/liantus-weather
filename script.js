@@ -118,21 +118,6 @@ function showCurrent(event) {
 let currentButton = document.querySelector("#current-position");
 currentButton.addEventListener("click", showCurrent);
 
-function convertToFahrenheit(event) {
-  let tempElement = document.querySelector("#big-weather-display");
-  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
-  tempElement.innerHTML = Math.round(fahrenheitTemp);
-  fahrenheitButton.classList.add("clicked");
-  celsiusButton.classList.remove("clicked");
-}
-
-function convertToCelsius(event) {
-  let tempElement = document.querySelector("#big-weather-display");
-  tempElement.innerHTML = Math.round(celsiusTemp);
-  fahrenheitButton.classList.remove("clicked");
-  celsiusButton.classList.add("clicked");
-}
-
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
@@ -174,13 +159,5 @@ function displayForecast(response) {
 
   forecastElement.innerHTML = forecastHTML;
 }
-
-let fahrenheitButton = document.querySelector("#farenheit-button");
-fahrenheitButton.addEventListener("click", convertToFahrenheit);
-
-let celsiusButton = document.querySelector("#celsius-button");
-celsiusButton.addEventListener("click", convertToCelsius);
-
-let celsiusTemp = null;
 
 search("Kazan");
