@@ -133,18 +133,41 @@ function displayForecast(response) {
 
   forecast.forEach(function (forecastDay, index) {
     if (index < 5) {
+      forecastDay.weather[0].icon;
+      if ((forecastDay.weather[0].icon = "01d")) {
+        icon = clearSky;
+      }
+      if ((forecastDay.weather[0].icon = "02d")) {
+        icon = fewClouds;
+      }
+      if (
+        (forecastDay.weather[0].icon = "03d") ||
+        (forecastDay.weather[0].icon = "04d")
+      ) {
+        icon = clouds;
+      }
+      if ((forecastDay.weather[0].icon = "09d")) {
+        icon = showerRain;
+      }
+      if ((forecastDay.weather[0].icon = "10d")) {
+        icon = rain;
+      }
+      if ((forecastDay.weather[0].icon = "11d")) {
+        icon = thunderstorm;
+      }
+      if ((forecastDay.weather[0].icon = "13d")) {
+        icon = snow;
+      }
+      if ((forecastDay.weather[0].icon = "50d")) {
+        icon = mist;
+      }
       forecastHTML =
         forecastHTML +
         `<div class="card forecast one-day"><div class="upcoming-weekday">${formatDay(
           forecastDay.dt
         )}</div>
-          <img
-            src="http://openweathermap.org/img/wn/${
-              forecastDay.weather[0].icon
-            }@2x.png"
-            alt=""
-            class="forecast-icon"
-          />
+        <div id="forecast-icon"></div>
+        ${icon}
           <div class="upcoming-temperature">
             <span class="temp-max">${Math.round(
               forecastDay.temp.max
@@ -159,5 +182,14 @@ function displayForecast(response) {
 
   forecastElement.innerHTML = forecastHTML;
 }
+
+let clearSky = `<i class="fas fa-sun"></i>`;
+let fewClouds = `<i class="fas fa-cloud-sun"></i>`;
+let clouds = `<i class="fas fa-cloud"></i>`;
+let showerRain = `<i class="fas fa-cloud-showers-heavy"></i>`;
+let rain = `<i class="fas fa-cloud-rain"></i>`;
+let thunderstorm = `<i class="fas fa-bolt"></i>`;
+let snow = `<i class="far fa-snowflake"></i>`;
+let mist = `<i class="fas fa-smog"></i>`;
 
 search("Kazan");
