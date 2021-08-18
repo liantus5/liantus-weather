@@ -5,18 +5,6 @@ body {
   padding: 50px;
 }
 
-.main-card {
-  background-color: rgba(251, 251, 251, 0.7);
-  display: block;
-  margin: 0 auto;
-  color: #575657;
-  border: none;
-  white-space: nowrap;
-  max-width: 800px;
-  min-width: 300px;
-  padding: 30px;
-}
-
 h1 {
   text-align: left;
   font-size: 50px;
@@ -30,6 +18,7 @@ ul.current-data {
   top: 0px;
   right: 0;
 }
+
 ul.today {
   list-style: none;
   text-align: center;
@@ -37,11 +26,31 @@ ul.today {
   font-size: small;
 }
 
+.main-card {
+  background-color: rgba(251, 251, 251, 0.7);
+  display: block;
+  margin: 0 auto;
+  color: #575657;
+  border: none;
+  white-space: nowrap;
+  max-width: 800px;
+  min-width: 300px;
+  padding: 30px;
+}
+
 .today-temp {
   display: block;
   text-align: center;
   font-size: 60px;
   padding: 0;
+}
+
+.search-bar {
+  padding: 0;
+}
+
+.btn:hover {
+  background-color: #575657;
 }
 
 .unit {
@@ -53,15 +62,25 @@ ul.today {
 }
 
 .one-day {
-  background-color: rgb(251, 251, 251, 0.2);
+  background-color: rgba(251, 251, 251, 0.2);
   border: none;
   text-align: center;
   width: 20%;
+  opacity: 0.;
+}
+
+.one-day:hover {
+  background-color: rgba(87, 86, 87, 0.3);
+  border: none;
+  border-radius: 0px;
+  text-align: center;
+  width: 20%;
+  opacity: 1;
+  cursor: pointer;
 }
 
 .forecast-icon {
-  max-width: 60px;
-  max-height: 60px;
+  font-size: 30px;
   display: block;
   margin: 0 auto;
 }
@@ -74,6 +93,7 @@ ul.today {
 .upcoming-weekday:hover {
   box-shadow: lightgray;
 }
+
 .upcoming-temperature {
   font-size: 16px;
 }
