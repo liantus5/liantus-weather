@@ -74,7 +74,6 @@ let searchForm = document.querySelector("#city-search");
 searchForm.addEventListener("submit", showCity);
 
 function getForecast(coordinates) {
-  console.log(coordinates);
   let apiKey = "e443ae2d9c3fd770036c3beff05b41cf";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
@@ -100,7 +99,6 @@ function showWeather(response) {
 }
 
 function getMainIcon(icon) {
-  console.log(icon);
   mainIcon = document.querySelector("#main-icon");
 
   if (icon === "01n") {
