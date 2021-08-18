@@ -37,7 +37,7 @@ function getWeekDay(weekDay) {
 function showTime(currentTime) {
   let hour = currentTime.getHours();
   if (hour < 10) {
-    hour = `0${hours}`;
+    hour = `0${hour}`;
   }
   let minutes = currentTime.getMinutes();
   if (minutes < 10) {
@@ -94,14 +94,45 @@ function showWeather(response) {
   h1.innerHTML = response.data.name;
   let description = document.querySelector("#description");
   description.innerHTML = response.data.weather[0].description;
-  let mainIcon = document.querySelector("#main-icon");
-  mainIcon.setAttribute(
-    "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-  );
-  mainIcon.setAttribute("alt", response.data.weather[0].description);
 
+  getMainIcon(response.data.weather[0].icon);
   getForecast(response.data.coord);
+}
+
+function getMainIcon(icon) {
+  console.log(icon);
+  mainIcon = document.querySelector("#main-icon");
+
+  if (icon === "01n") {
+    mainIcon.innerHTML = clearSkyNight;
+  }
+  if (icon === "01d") {
+    mainIcon.innerHTML = clearSky;
+  }
+  if (icon === "02n") {
+    mainIcon.innerHTML = fewCloudsNight;
+  }
+  if (icon === "02d") {
+    mainIcon.innerHTML = fewClouds;
+  }
+  if (icon === "03n" || icon === "04n" || icon === "03d" || icon === "04d") {
+    mainIcon.innerHTML = clouds;
+  }
+  if (icon === "09n" || icon === "09d") {
+    mainIcon.innerHTML = showerRain;
+  }
+  if (icon === "10n" || icon === "10d") {
+    mainIcon.innerHTML = rain;
+  }
+  if (icon === "11n" || icon === "11d") {
+    mainIcon.innerHTML = thunderstorm;
+  }
+  if (icon === "13n" || icon === "13d") {
+    mainIcon.innerHTML = snow;
+  }
+  if (icon === "50n" || icon === "50d") {
+    mainIcon.innerHTML = mist;
+  }
 }
 
 function handlePosition(position) {
@@ -133,32 +164,31 @@ function displayForecast(response) {
 
   forecast.forEach(function (forecastDay, index) {
     if (index < 5) {
-      forecastDay.weather[0].icon;
-      if ((forecastDay.weather[0].icon = "01d")) {
+      if (forecastDay.weather[0].icon === "01d") {
         icon = clearSky;
       }
-      if ((forecastDay.weather[0].icon = "02d")) {
+      if (forecastDay.weather[0].icon === "02d") {
         icon = fewClouds;
       }
       if (
-        (forecastDay.weather[0].icon = "03d") ||
-        (forecastDay.weather[0].icon = "04d")
+        forecastDay.weather[0].icon === "03d" ||
+        forecastDay.weather[0].icon === "04d"
       ) {
         icon = clouds;
       }
-      if ((forecastDay.weather[0].icon = "09d")) {
+      if (forecastDay.weather[0].icon === "09d") {
         icon = showerRain;
       }
-      if ((forecastDay.weather[0].icon = "10d")) {
+      if (forecastDay.weather[0].icon === "10d") {
         icon = rain;
       }
-      if ((forecastDay.weather[0].icon = "11d")) {
+      if (forecastDay.weather[0].icon === "11d") {
         icon = thunderstorm;
       }
-      if ((forecastDay.weather[0].icon = "13d")) {
+      if (forecastDay.weather[0].icon === "13d") {
         icon = snow;
       }
-      if ((forecastDay.weather[0].icon = "50d")) {
+      if (forecastDay.weather[0].icon === "50d") {
         icon = mist;
       }
       forecastHTML =
@@ -166,8 +196,8 @@ function displayForecast(response) {
         `<div class="card forecast one-day"><div class="upcoming-weekday">${formatDay(
           forecastDay.dt
         )}</div>
-        <div id="forecast-icon"></div>
-        ${icon}
+        <div class="forecast-icon">${icon}</div>
+        
           <div class="upcoming-temperature">
             <span class="temp-max">${Math.round(
               forecastDay.temp.max
@@ -184,7 +214,9 @@ function displayForecast(response) {
 }
 
 let clearSky = `<i class="fas fa-sun"></i>`;
+let clearSkyNight = `<i class="fas fa-moon"></i>`;
 let fewClouds = `<i class="fas fa-cloud-sun"></i>`;
+let fewCloudsNight = `<i class="fas fa-cloud-moon"></i>`;
 let clouds = `<i class="fas fa-cloud"></i>`;
 let showerRain = `<i class="fas fa-cloud-showers-heavy"></i>`;
 let rain = `<i class="fas fa-cloud-rain"></i>`;
